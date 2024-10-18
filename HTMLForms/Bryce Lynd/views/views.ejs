@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Created Monsters</title>
+</head>
+<body>
+    <ul>
+        <% data.forEach( monster => {%>
+            <li>
+                <strong>Monster's Name:</strong> <%= monster.M_name %><br>
+                <strong>Creator's Name:</strong> <%= monster.name %><br>
+                <strong>Monster's Horn Type:</strong> <%= monster.horn %><br>
+                <strong>Monster's Horn Amount:</strong> <%= monster.hornAmount %><br>
+                <strong>Monster's Body Type:</strong> <%= monster.bodyType %><br>
+                <strong>Monster's Skin Type:</strong> <%= monster.skin %><br>
+                <strong>Monster's Tail Type:</strong> <%= monster.tail %><br>
+            </li>
+            <hr>
+        <% }) %>
+    </ul>
+    <a href="/add">To Monster Creator</a>
+</body>
+</html>

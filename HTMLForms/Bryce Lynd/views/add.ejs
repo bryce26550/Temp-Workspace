@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A Monster</title>
+</head>
+<body>
+    <h1>Create A Monster!</h1>
+    <form id="createMonsterForm" action="/add" method="POST">
+    <fieldset>
+        <legend>Select a horn type:</legend>
+        <div>
+          <input type="radio" id="spiral" name="horn" value="spiral" checked />
+          <label for="spiral">Spiral</label>
+        </div>
+
+        <div>
+          <input type="radio" id="curly" name="horn" value="curly" />
+          <label for="curly">Curly</label>
+        </div>
+
+        <div>
+          <input type="radio" id="bladed" name="horn" value="bladed" />
+          <label for="bladed">Bladed</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Select your horn amount:</legend>
+        <div>
+          <input type="radio" id="1" name="hornAmount" value="1" checked />
+          <label for="1">1</label>
+        </div>
+
+        <div>
+          <input type="radio" id="2" name="hornAmount" value="2" />
+          <label for="2">2</label>
+        </div>
+
+        <div>
+          <input type="radio" id="3" name="hornAmount" value="3" />
+          <label for="3">3</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Select a body type:</legend>
+        <div>
+          <input type="radio" id="blob" name="bodyType" value="blob" checked />
+          <label for="blob">Blob</label>
+        </div>
+
+        <div>
+          <input type="radio" id="slim" name="bodyType" value="slim" />
+          <label for="slim">Slim</label>
+        </div>
+
+        <div>
+          <input type="radio" id="muscular" name="bodyType" value="muscular" />
+          <label for="muscular">Muscular</label>
+        </div>
+      </fieldset> 
+
+      <fieldset>
+        <legend>Select a skin type:</legend>
+        <div>
+          <input type="radio" id="hairy" name="skin" value="hairy" checked />
+          <label for="hairy">Hairy</label>
+        </div>
+
+        <div>
+          <input type="radio" id="scaly" name="skin" value="scaly" />
+          <label for="scaly">Scaly</label>
+        </div>
+
+        <div>
+          <input type="radio" id="slimy" name="skin" value="slimy" />
+          <label for="slimy">Slimy</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Select a tail type:</legend>
+        <div>
+          <input type="radio" id="spiked" name="tail" value="spiked" checked />
+          <label for="spiked">Spiked</label>
+        </div>
+
+        <div>
+          <input type="radio" id="clubed" name="tail" value="clubed" />
+          <label for="clubed">Clubed</label>
+        </div>
+        <div>
+          <input type="radio" id="bladed" name="tail" value="bladed" />
+          <label for="bladed">Bladed</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="name">Your name:</label>
+        <input type="text" id="name" name="name" />
+      </div>
+
+      <div>
+        <label for="M_name">Monster's name:</label>
+        <input type="text" id="M_name" name="M_name" />
+      </div>
+      <input type="submit" value="Create Monster"/>
+      </form>
+</body>
+</html>

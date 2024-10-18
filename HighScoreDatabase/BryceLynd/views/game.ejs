@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Thanks chatGPT. I would have used the clicker game we made in class but I lost it and didn't
+want to take a class to remake it-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoHoDa</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #x {
+            font-size: 50px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        #score,
+        #timer {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click the X</h1>
+    <div id="score">Score: 0</div>
+    <div id="timer">Time: 15</div>
+    <div id="x">X</div>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    let score = 0;
+    let timeLeft = 15;
+    const scoreDisplay = document.getElementById('score');
+    const timerDisplay = document.getElementById('timer');
+    const xElement = document.getElementById('x');
+
+    function updateScore() {
+        score++;
+        scoreDisplay.textContent = `Score: ${score}`;
+        moveX();
+    }
+
+    function moveX() {
+        const randomX = Math.random() * (window.innerWidth - 50); 
+        const randomY = Math.random() * (window.innerHeight - 50); 
+        xElement.style.left = `${randomX}px`;
+        xElement.style.top = `${randomY}px`;
+    }
+
+    function startTimer() {
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = `Time: ${timeLeft}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                endGame();
+            }
+        }, 1000);
+    }
+
+    function endGame() {
+        xElement.removeEventListener('click', updateScore);
+        xElement.style.display = 'none'; 
+        alert(`Time's up! Your final score is: ${score}`);
+        var name = prompt("What is your name?")
+        alert("Thank you "+ name +" your score has been added to the leader board")
+        let post = new XMLHttpRequest()
+        post.open("POST", "/hiscore", true)
+        let sendData = {Name: name, Score: score}
+        post.send(JSON.stringify(sendData))
+    }
+
+    xElement.addEventListener('click', updateScore);
+    moveX(); 
+    startTimer();
+    
+    
+</script>
+
+</html>

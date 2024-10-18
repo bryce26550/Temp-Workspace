@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Mover</title>
+</head>
+<body>
+    <canvas id="canva" height="600" width="800" style="border:1px solid #000000"></canvas>
+</body>
+<script>
+    let player = { x: 100, y: 100, w: 120, h: 160, speed:2, img: new Image() };
+    const canva = document.getElementById("canva");
+    const ctx = canva.getContext("2d");
+    player.img.src = "Shrek-running.png";
+    //move controls
+    function move(event) {
+        if (event.key == "w" || event.key == "ArrowUp") {
+            player.y -= 5 * player.speed
+        }
+        else if (event.key == "s" || event.key == "ArrowDown") {
+            player.y += 5 * player.speed
+        }
+        else if (event.key == "d" || event.key == "ArrowRight") {
+            player.x += 5 * player.speed
+        }
+        else if (event.key == "a" || event.key == "ArrowLeft") {
+            player.x -= 5 * player.speed
+        }
+        else { }
+    }
+    document.addEventListener("keydown", move);
+    function update() {
+        //boarder
+        if (player.x < 0) {
+            player.x = 0
+        }
+        if (player.y < 0) {
+            player.y = 0
+        }
+        if (player.x + player.w > canva.width) {
+            player.x = canva.width - player.w
+        }
+        if (player.y + player.h > canva.height) {
+            player.y = canva.height - player.h
+        }
+        //clear canvas
+        ctx.clearRect(0, 0, canva.width, canva.height);
+        ctx.drawImage(player.img, player.x, player.y, player.w, player.h);
+        ctx.drawImage(player.img, player.x, player.y, player.w, player.h);
+        //player position
+        ctx.font = "15px arial";
+        ctx.fillText(player.y, 15, 30);
+        ctx.fillText(player.x, 45, 30);
+        requestAnimationFrame(update);
+    }
+    update();
+</script>
+</html>

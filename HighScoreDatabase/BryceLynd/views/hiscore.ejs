@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiScore</title>
+</head>
+<body>
+    <% for (row of data) { %>
+        User: <%- row.name %>, Score: <%- row.score %> <br>
+    <% } %>
+    <a href="/">To home</a>
+    <a href="/game">To Game</a>
+</body>
+</html>

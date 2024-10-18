@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "horn": "bladed",
+      "hornAmount": "1",
+      "bodyType": "slim",
+      "skin": "hairy",
+      "tail": "bladed",
+      "name": "Matthew",
+      "M_name": "Lucario"
+    },
+    {
+      "horn": "curly",
+      "hornAmount": "2",
+      "bodyType": "muscular",
+      "skin": "hairy",
+      "tail": "clubed",
+      "name": "BRYCE",
+      "M_name": "Bludgener"
+    },
+    {
+      "horn": "bladed",
+      "hornAmount": "2",
+      "bodyType": "slim",
+      "skin": "slimy",
+      "tail": "spiked",
+      "name": "BRYCE",
+      "M_name": "SlimeCycal"
+    },
+    {
+      "horn": "bladed",
+      "hornAmount": "2",
+      "bodyType": "blob",
+      "skin": "slimy",
+      "tail": "clubed",
+      "name": "Ganandorg",
+      "M_name": "Slimecical"
+    }
+  ]
+}
