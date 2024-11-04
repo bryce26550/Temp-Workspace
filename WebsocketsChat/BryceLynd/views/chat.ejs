@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT!</title>
+
+</head>
+
+<body>
+    <style>
+        #nameList {
+            float: left;
+            border: 2px double black;
+            height: 930px;
+            width: 185px;
+            overflow-y: auto;
+        }
+
+        #chatBox {
+            background-color: white;
+            margin-left: 200px;
+            height: auto;
+            overflow-y: scroll;
+            overflow-x: auto;
+            display: list-item;
+        }
+
+        #messageBox {
+            background-color: white;
+            width: 675px;
+            height: 25px;
+            position: absolute;
+            float: right;
+            margin-top: 900px;
+            margin-left: 9px;
+
+        }
+
+        #Send {
+            background-color: white;
+            float: right;
+            height: 30px;
+            width: 55px;
+            margin-top: 900px;
+        }
+    </style>
+
+    <div id="nameList"></div>
+    <input type="text" id="messageBox">
+    <input type="submit" value="Send" id="Send">
+    <div id="chatBox">HELLO HELLO HELLO HELLO </div>
+
+    <script>
+        const ws = new WebSocket("ws://localhost:3000")
+        const name = `<%= name %>`
+        let userList = document.getElementById("userList")
+        let msgBox = document.getElementById("messageBox")
+        let sendButton = document.getElementById("Send")
+        let chatBox = document.getElementById("chatBox")
+
+        ws.onopen = function () {
+            ws.send(JSON.stringify({ name: name }));
+        };
+
+        ws.onmessage = function(message) {
+            let mess = JSON.parse(message.data)
+
+            if (mess.hasOwnData("list")) {
+                nameListUpdate(mess.list)
+            };
+            
+            if (mess.hasOwnData("text")) {
+
+            };
+        };
+        
+        function nameListUpdate(list) {
+            nameList.innerHTML = "";
+
+            for (let i = 0; i < list.length; i++) {
+                let listData = list[i];
+                userList.append(listData)
+            };
+        };
+
+        function newMessage(newMsg) {
+            
+        }
+        
+    </script>
+</body>
+
+</html>

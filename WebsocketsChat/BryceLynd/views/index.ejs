@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <form name="nameForm" action="/chat" onsubmit="return validateForm()" method="get" required>
+        Enter Name: <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function validateForm() {
+            var x = document.forms["nameForm"]["name"].value;
+            if (x == "") {
+                alert("You can't chat with ought a name");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
