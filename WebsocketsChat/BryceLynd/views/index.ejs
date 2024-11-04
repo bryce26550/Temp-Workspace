@@ -11,19 +11,11 @@
 </head>
 
 <body>
-    <form name="nameForm" action="/chat" onsubmit="return validateForm()" method="get" required>
-        Enter Name: <input type="text" name="name">
-        <input type="submit" value="Submit">
+    <form action="/chat" method="get">
+        <legend for="user">Enter your name: </legend>
+        <input id="user" type="text" name="name" required>
+        <input type="submit">
     </form>
-    <script>
-        function validateForm() {
-            var x = document.forms["nameForm"]["name"].value;
-            if (x == "") {
-                alert("You can't chat with ought a name");
-                return false;
-            }
-        }
-    </script>
 </body>
 
 </html>

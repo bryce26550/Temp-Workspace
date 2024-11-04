@@ -38,20 +38,21 @@ function userList(wss) {
 };
 
 wss.on("connection", (ws) => {
-
+    ws.send(JSON.stringify({ name: "Server", text: "welcome to Chat!" }));
     ws.on("message", (message) => {
-        message = JSON.parse(String(message))
+        message = JSON.parse(message)
+        
         if (message.hasOwnProperty("text")) {
-            broadcast(ws, message)
+            broadcast(wss, message)
         };
 
         if (message.hasOwnProperty("name")) {
             ws.name = message.name
-            broadcast(ws, userList(ws))
+            broadcast(wss, userList(ws))
         };
     });
 });
 
 wss.on("close", () => {
-    broadcast(ws, userList(ws))
+    broadcast(wss, userList(ws))
 });
