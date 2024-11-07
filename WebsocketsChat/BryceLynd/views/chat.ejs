@@ -13,7 +13,7 @@
         #nameList {
             float: left;
             border: 2px double black;
-            height: 930px;
+            height: 925px;
             width: 185px;
             overflow-y: auto;
         }
@@ -29,27 +29,27 @@
 
         #messageBox {
             background-color: white;
-            width: 675px;
+            width: 85%;
             height: 25px;
             position: absolute;
             float: right;
-            margin-top: 900px;
-            margin-left: 9px;
+            margin-top: 896px;
+            margin-left: 5px;
 
         }
 
         #Send {
             background-color: white;
             float: right;
-            height: 30px;
-            width: 55px;
+            height: 10%;
+            width: 45px;
             margin-top: 900px;
         }
     </style>
 
     <div id="nameList"></div>
     <input type="text" id="messageBox">
-    <button id="Send" onclick="messageBox()">Send</button>
+    <button id="Send" onclick="sendMessage()">Send</button>
     <div id="chatBox"></div>
 
     <script>
@@ -67,6 +67,7 @@
             if (mess.list) {
                 for (name in mess.list) {
                     document.getElementById("namelist").innerHTML += mess.list[name] + "<br>";
+                    document.appendChild("div[name='nameList']")
                 }
             };
 
@@ -74,9 +75,10 @@
                 document.getElementById("chatBox").innerHTML += mess.name + ": " + mess.text + "<br>";
             }
         };
-        function sendMessage(event) {
-            let inputMessage = document.getElementById("messageBox")
-            ws.send(JSON.stringify({ name: name, text: inputMessage.value }))
+        function sendMessage() {
+            const inputMessage = document.getElementById("messageBox").value
+            console.log(inputMessage);
+            ws.send(JSON.stringify({ name: name.value, text: inputMessage }))
         }
 
     </script>
