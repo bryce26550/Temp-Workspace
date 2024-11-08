@@ -21,7 +21,7 @@
         #chatBox {
             background-color: white;
             margin-left: 200px;
-            height: auto;
+            height: 890px;
             overflow-y: scroll;
             overflow-x: auto;
             display: list-item;
@@ -52,36 +52,42 @@
     <button id="Send" onclick="sendMessage()">Send</button>
     <div id="chatBox"></div>
 
-    <script>
-        const ws = new WebSocket("ws://localhost:3000")
-        const name = `<%= name %>`
+</body>
+<script>
+    const ws = new WebSocket("ws://localhost:3000")
+    let name = `<%= name %>`
 
-        ws.onopen = function () {
-            ws.send(JSON.stringify({ name: name }));
-        };
 
-        ws.onmessage = function (message) {
-            let mess = JSON.parse(message.data)
-            console.log(mess);
+    ws.onopen = function () {
+        ws.send(JSON.stringify({ name: name }));
+        console.log(name);
+        
+    };
 
-            if (mess.list) {
-                for (name in mess.list) {
-                    document.getElementById("namelist").innerHTML += mess.list[name] + "<br>";
-                    document.appendChild("div[name='nameList']")
-                }
-            };
+    ws.onmessage = function (message) {
+        let mess = JSON.parse(message.data)
+        console.log(mess);
 
-            if (mess.text) {
-                document.getElementById("chatBox").innerHTML += mess.name + ": " + mess.text + "<br>";
+        if (mess.list) {
+            console.log(mess.list); 
+            let nameList = document.getElementById("nameList");
+            nameList.innerHTML = ''
+            for (name in mess.list) {
+                console.log(mess.list[name]);
+                nameList.innerHTML += mess.list[name] + "<br>";
             }
         };
-        function sendMessage() {
-            const inputMessage = document.getElementById("messageBox").value
-            console.log(inputMessage);
-            ws.send(JSON.stringify({ name: name.value, text: inputMessage }))
-        }
 
-    </script>
-</body>
+        if (mess.text) {
+            document.getElementById("chatBox").innerHTML += mess.name + ": " + mess.text + "<br>";
+        }
+    };
+    function sendMessage() {
+        const inputMessage = document.getElementById("messageBox").value
+        console.log(inputMessage);
+        ws.send(JSON.stringify({ name: name, text: inputMessage }))
+    };
+
+</script>
 
 </html>

@@ -22,16 +22,16 @@ app.get("/chat", (req, res) => {
 });
 
 function broadcast(wss, message) {
-    for (client in wss.client) {
+    for (client of wss.clients) {
         client.send(JSON.stringify(message));
     }
 };
 
 function userList(wss) {
     let usr = []
-    for (client in wss.client) {
+    for (client of wss.clients) {
         if (client.hasOwnProperty("name")) {
-            usr.append(client)
+            usr.push(client.name)
         };
     };
     return { list: usr }
@@ -39,6 +39,8 @@ function userList(wss) {
 
 wss.on("connection", (ws) => {
     ws.send(JSON.stringify({ name: "Server", text: "welcome to Chat!" }));
+    broadcast(wss, userList(wss))
+
     ws.on("message", (message) => {
         message = JSON.parse(message)
         
@@ -48,11 +50,11 @@ wss.on("connection", (ws) => {
 
         if (message.hasOwnProperty("name")) {
             ws.name = message.name
-            broadcast(wss, userList(ws))
+            broadcast(wss, userList(wss))
         };
     });
 });
 
 wss.on("close", () => {
-    broadcast(wss, userList(ws))
+    broadcast(wss, userList(wss))
 });
