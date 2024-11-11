@@ -13,11 +13,11 @@
     <div>
         <p id="userCont"> You: <span id="user"></span></p>
         <p id="oppCont"> Opp: <span id="Opp"></span></p>
-    </div><br>
+    </div>
 
-    <p id="valueCont">You are <span id="value"></span></p><br>
+    <p id="valueCont">You are <span id="value"></span></p>
 
-    <p id="turn">X goes first(they always will)</p>
+    <p id="turn">X goes first</p>
 
     <div>
         <input type="text" placeholder="Enter Name" id="name" autocomplete="off">
@@ -44,9 +44,49 @@
     </div>
 
     <style>
-        #smallBox{
+        #smallBox {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        }
+
+        #loading {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100px;
+            height: 100px;
+
+        }
+
+        h1 {
+            color: orangered;
+            font-size: 100px;
+            text-shadow: 0 0 10px aqua, 0 0 10px aqua;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black;
+            text-align: center;
+            margin: 45px;
+
+        }
+
+        #userCont {
+            font-size: 50px;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: rgb(0, 220, 220);
+        }
+
+        #oppCont {
+            float: right;
+            font-size: 50px;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: rgb(240, 65, 0);
+
+        }
+
+        .btn {
+            height: 100px;
+            width: 100px;
         }
     </style>
 
@@ -54,16 +94,16 @@
 
 <script src="/socket.io/socket.io.js">
 
-    document.getElementById("loading").style.display="none"
-    document.getElementById("BigBox").style.display="none"
-    document.getElementById("userCont").style.display="none"
-    document.getElementById("oppCont").style.display="none"
-    document.getElementById("valueCont").style.display="none"
-    document.getElementById("turn").style.display="none"
+    document.getElementById("loading").style.display = "none"
+    document.getElementById("BigBox").style.display = "none"
+    document.getElementById("userCont").style.display = "none"
+    document.getElementById("oppCont").style.display = "none"
+    document.getElementById("valueCont").style.display = "none"
+    document.getElementById("turn").style.display = "none"
 
     const socket = io();
     let name;
-    document.getElementById("findOpp").addEventListener("click", function(){
+    document.getElementById("findOpp").addEventListener("click", function () {
         name = getElementById("name").value
     })
 
