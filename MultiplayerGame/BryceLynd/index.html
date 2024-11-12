@@ -11,8 +11,8 @@
     <h1>Tic-Tac-Toe</h1>
 
     <div>
-        <p id="userCont"> You: <span id="user"></span></p>
-        <p id="oppCont"> Opp: <span id="Opp"></span></p>
+        <p style="position: absolute; left: 0;"id="userCont"> You: <span id="user"></span></p>
+        <p style="position: absolute; right: 0;" id="oppCont"> Opp: <span id="Opp"></span></p>
     </div>
 
     <p id="valueCont">You are <span id="value"></span></p>
@@ -45,15 +45,26 @@
 
     <style>
         #smallBox {
-            display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+            display: inline-grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: 150px;
+            -ms-transform: translate(-50%);
+            transform: translate(-50%);
 
         }
 
         #loading {
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             width: 100px;
             height: 100px;
 
@@ -71,22 +82,38 @@
         }
 
         #userCont {
+            top: 10%;
             font-size: 50px;
             -webkit-text-stroke-width: 2px;
             -webkit-text-stroke-color: rgb(0, 220, 220);
         }
 
         #oppCont {
-            float: right;
+            top: 10%;
             font-size: 50px;
             -webkit-text-stroke-width: 2px;
             -webkit-text-stroke-color: rgb(240, 65, 0);
 
         }
 
+        #findOpp {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
         .btn {
             height: 100px;
             width: 100px;
+        }
+
+        body {
+            /* background-size: 1500px; */
+            background-position: center;
+            background-image: url("background.jpg");
         }
     </style>
 
