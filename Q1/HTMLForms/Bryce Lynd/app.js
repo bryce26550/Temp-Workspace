@@ -4,7 +4,7 @@ const app = express();
 const fs = require("fs")
 
 app.set("view engine", "ejs");
-app.listen(3500)
+app.listen(3000)
 
 app.use(express.urlencoded({ exteneded: true }))
 app.get("/", (req, res) => {
