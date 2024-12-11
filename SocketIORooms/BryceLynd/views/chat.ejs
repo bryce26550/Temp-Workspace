@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT!!!</title>
+</head>
+
+<body>
+    <style>
+        #serverList {
+            float: left;
+            border: 2px double black;
+            height: 925px;
+            width: 185px;
+            overflow-y: auto;
+        }
+
+        #chatBox {
+            background-color: white;
+            margin-left: 200px;
+            height: 890px;
+            overflow-y: scroll;
+            overflow-x: auto;
+            display: list-item;
+        }
+
+        #messageBox {
+            background-color: white;
+            width: 85%;
+            height: 25px;
+            position: absolute;
+            float: right;
+            margin-top: 896px;
+            margin-left: 5px;
+
+        }
+
+        #Send {
+            background-color: white;
+            float: right;
+            height: 10%;
+            width: 45px;
+            margin-top: 900px;
+        }
+    </style>
+
+    <div id="serverList"></div>
+    <input type="text" id="messageBox">
+    <button id="Send" onclick="sendMessage()">Send</button>
+    <div id="chatBox"></div>
+</body>
+<script>
+    
+</script>
+
+</html>

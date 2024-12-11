@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 7-2</title>
+
+<script type="text/Javascript">
+<!--
+
+function showUpper(checked) {
+  var showThis;
+  if (checked)  {
+    showThis = document.myForm.name.value.toUpperCase();
+  } else {
+    showThis = document.myForm.name.value.toLowerCase();
+  }
+    document.myForm.name.value = showThis;
+}
+
+function emailTest(form)  {
+ var goodemail = 0;
+ if (form.email_address.value.indexOf("@", 0) < 0) {
+  alert("This is not a valid e-mail address!");
+  goodemail = 1;
+ } else {
+  var strLength = document.myForm.email_address.value.length;
+  if(strLength < 6 ){ alert("This e-mail address is too short");
+  goodemail = 1;}
+ }
+ if(goodemail == 0){
+   alert("This e-mail address is valid and at least six characters long");
+  };
+}
+
+function showFirst2(form)  {
+  var first2Chars = form.phone_number.value.substring(0, 2);
+  alert(first2Chars);
+}
+
+
+//-->
+</script>
+</head>
+<body>
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+
+<form name="myForm" id="myForm">
+Name:<br />
+<input type="text" size="30" name="name" /> 
+
+<input type="checkbox" name="upperCheckbox" onclick="showUpper(this.checked);" /> 
+Convert string to uppercase or lowercase<br />
+
+E-mail address:<br />
+<input type="text" size="30" name="email_address" /> 
+
+<input type="checkbox" onclick="(this.checked) ? emailTest(this.form) : '';">
+Test for e-mail address<br />
+
+Phone number:<br />
+<input type="text" size="30" name="phone_number" /><br />
+Fax number:<br />
+<input type="text" size="30" name="fax_number" />
+<p>
+
+<input type="button" value="First Two Characters Of Phone Number" onclick=
+"showFirst2(this.form);" />
+</p>
+<p>
+<input type="button" value="Fax Number Length" onclick='var strLength = document.myForm.fax_number.value.length; alert("That string is " + strLength + " characters long");' />
+</p>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 7-8</title>
+
+<script type="text/javascript">
+<!--
+
+  function runClock() {
+  var timeNow = new Date();
+  var hours = timeNow.getHours();
+  var minutes = timeNow.getMinutes();
+  var seconds = timeNow.getSeconds();
+  var ampm = "";
+
+    (seconds < 10) ? seconds = "0" + seconds : seconds;
+    (minutes < 10) ? minutes = "0" + minutes : minutes;
+    (hours < 12) ? ampm = "AM" : ampm = "PM";
+  (hours > 12) ? hours = hours - 12 : hours;
+  (hours == 0) ? hours = 12 : hours;
+  
+  var stringTime = " " + hours + ":" + minutes + ":" +seconds + " " + ampm;
+  
+  document.forms[0].clockBox.value=stringTime;
+  
+  setTimeout("runClock()",1000);
+  }
+
+//-->
+</script>
+</head>
+<body onload="runClock();">
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+
+
+<h4>Time Watcher</h4>
+
+
+</body>
+</html>
