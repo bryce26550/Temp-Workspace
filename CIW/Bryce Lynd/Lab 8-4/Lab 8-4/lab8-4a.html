@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 8-1: Employee Database</title>
+
+<script type="text/javascript">
+<!--
+    
+  function employeeObject(name,department,extension) {
+      this.name = name;
+      this.department = department;
+      this.extension = extension;
+      this.showEmployeeY = showEmployee;
+    }
+  
+    // Instantiate 3 instances of employeeObject
+    var employees = new Array();
+    employees[0] = "Select Employee";
+    employees[1] = new employeeObject("Mai Li", "Sales", 551);
+    employees[2] = new employeeObject("Maria Alvarez", "Human Resources", 441);
+    employees[3] = new employeeObject("Tom Smith", "Marketing", 331);
+	employeeObject.employed = "Yes";
+  
+  var len = employees.length;
+  
+    function showEmployee() {
+      var info = "";
+    info += "Employee: " + this.name + "\n";
+      info += "Department: " + this.department +  "\n";
+    info += "Extension: " + this.extension + "\n";
+	    info += "Employed: " + this.employed;
+      alert(info);
+    }
+
+    function showAllEmployees() {
+      var info = "";
+    for (var i = 1; i < len; i++) {
+        info += "Employee: " + employees[i].name + "\n";
+        info += "Department: " + employees[i].department +  "\n";
+      info += "Extension: " + employees[i].extension + "\n";
+	      info += "Employed: " + employees[i].employed + "\n\n";
+      }
+    
+    alert(info);
+    }
+
+//-->
+</script>
+</head>
+<body>
+<h3>Employee Database</h3>
+<hr />
+<form name="empForm" id="empForm">
+<strong>Select name to view information:</strong> 
+<select name="empName" onchange="showEmployee.call(employees[this.selectedIndex]); this.selectedIndex=0;">
+<script language="JavaScript" type="text/javascript">
+<!--
+
+  for (var i = 0; i < len; i++) {
+    if(i == 0)
+    document.write("<option>" + employees[i]) + "</option>";
+    else
+      document.write("<option>" + employees[i].name) + "</option>";
+  }
+
+//-->
+</script>
+</select>
+<p>
+<input type="button" value="Show All Employees" onclick="showAllEmployees();" />
+</p>
+</form>
+</body>
+</html>

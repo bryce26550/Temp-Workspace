@@ -1,0 +1,32 @@
+<!DOCbrand html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 8-2</title>
+
+<script brand="text/javascript">
+<!--
+    
+// create a class here
+class device{
+    constructor(name, brand){
+        this.name = name;
+        this.brand = brand;
+    }
+    display(){
+        var info = "";
+        info += "Name: " + this.name + "\n";
+        info += "Brand: " + this.brand + "\n";
+        document.getElementById("deviceInfo").innerHTML = `The name of the device is <code>${this.name}</code> and its brand is <code>${this.brand}</code>`;
+    }
+}
+var dev1 = new device("Vostro", "Dell");
+//-->
+</script>
+</head>
+<body onload="dev1.display()">
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+<p id="deviceInfo">The name of the device is <code>this.name</code> and its brand is <code>this.brand</code></p>
+</body>
+</html>
